@@ -1,0 +1,82 @@
+# ============================================================
+# EvalForge Example Test Suite
+# ============================================================
+# This suite tests a customer support chatbot on common queries.
+# Run it via:
+#   POST /suites/run  (upload this file)
+# ============================================================
+
+suite: customer_support_bot
+description: "Tests for a customer support chatbot covering the most common query types"
+model: gpt-4o
+prompt_template: "You are a helpful and concise customer support agent. Answer the following question clearly and briefly: {input}"
+
+cases:
+
+  # ---- Account & Authentication ----
+
+  - id: tc_001
+    input: "How do I reset my password?"
+    expected: "Go to the login page, click Forgot Password, enter your email address, and follow the instructions sent to your inbox."
+    scorers: [exact_match, semantic_similarity, llm_judge]
+    tags: [account, authentication]
+
+  - id: tc_002
+    input: "I can't log into my account. What should I do?"
+    expected: "Check your email and password are correct. If you've forgotten your password, use the Forgot Password link. If the problem persists, contact support."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [account, authentication]
+
+  - id: tc_003
+    input: "How do I change my email address?"
+    expected: "Go to Account Settings, select Personal Information, click Edit next to your email address, and save the changes."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [account, settings]
+
+  # ---- Billing & Subscriptions ----
+
+  - id: tc_004
+    input: "How do I cancel my subscription?"
+    expected: "Go to Account > Billing > Manage Subscription and click Cancel Subscription. Your access continues until the end of the billing period."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [billing, subscription]
+
+  - id: tc_005
+    input: "What payment methods do you accept?"
+    expected: "We accept Visa, Mastercard, American Express, PayPal, and bank transfers for annual plans."
+    scorers: [exact_match, semantic_similarity]
+    tags: [billing, payments]
+
+  - id: tc_006
+    input: "How do I get a refund?"
+    expected: "Refunds are available within 30 days of purchase. Contact support with your order number and reason for the refund request."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [billing, refunds]
+
+  # ---- Technical Support ----
+
+  - id: tc_007
+    input: "The app keeps crashing. How do I fix it?"
+    expected: "Try clearing the app cache, updating to the latest version, or reinstalling the app. If the issue persists, contact support with your device details."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [technical, bugs]
+
+  - id: tc_008
+    input: "How do I export my data?"
+    expected: "Go to Settings > Data & Privacy > Export Data. You will receive a download link by email within 24 hours."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [data, settings]
+
+  # ---- Business Hours & Contact ----
+
+  - id: tc_009
+    input: "What are your business hours?"
+    expected: "We are open Monday to Friday, 9am to 6pm GMT. Our live chat support is available 24/7."
+    scorers: [exact_match, semantic_similarity]
+    tags: [info, hours]
+
+  - id: tc_010
+    input: "How do I contact customer support?"
+    expected: "You can reach us via live chat on our website, email at support@example.com, or phone at 1-800-555-0100 during business hours."
+    scorers: [semantic_similarity, llm_judge]
+    tags: [info, contact]
