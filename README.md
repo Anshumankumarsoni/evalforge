@@ -381,18 +381,6 @@ MIT License — see LICENSE file for details.
 - 📖 **Docs**: Check the README and inline code comments
 - 🐛 **Issues**: Open an issue on GitHub
 - 💬 **Discussions**: Start a discussion for feature requests or general questions
-
----
-
-## Screenshot Placeholders
-
-(After building the dashboard, add screenshots here)
-
-- **Run Overview Page**
-- **Run Detail Page with Case Breakdown**
-- **Score History & Drift Chart**
-- **Export Interface**
-
 ---
 
 Built with ❤️ by the EvalForge team.
